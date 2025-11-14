@@ -9,6 +9,8 @@ import Contact from "./pages/Contact.jsx";
 import Products from "./pages/Products.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Navbar from "./layouts/Navbar.jsx";
+import SignIn from "./pages/SignIn.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: '/signin',
+        element: <SignIn/>
+      },
+      {
+        path: '/profile',
+        element: <Profile/>
       },
       {
         path: '*',
