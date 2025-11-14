@@ -1,14 +1,23 @@
-import React from 'react'
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Profile = () => {
+  const { state } = useLocation();
+  
   return (
     <div>
-      <h1>User Profile Dashboard</h1>
-      <p>Name: </p>
-      <p>Email: </p>
-      <p>Password: </p>
+      {state ? (
+        <>
+          <h1>User Profile Dashboard</h1>
+          <p>Name: {state.name} </p>
+          <p>Email: {state.email} </p>
+          <p>Password: {state.password} </p>
+        </>
+      ) : (
+        <p>No Profile Exist....</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

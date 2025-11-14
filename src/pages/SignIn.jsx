@@ -9,7 +9,10 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
    if(name === 'Ibrahim' && email === 'mohammadibrahim.dev@gmail.com' && password === '12345'){
-    navigate('/profile')
+    const user ={
+      name, email, password
+    }
+    navigate('/profile', {state: user})
    }else{
     alert('name, Email & Password Wrong!')
    }
