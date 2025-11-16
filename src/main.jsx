@@ -11,16 +11,15 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import Navbar from "./layouts/Navbar.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import Profile from "./pages/Profile.jsx";
+import ProductProvider from "./provider/ProductProvider.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Navbar />,
+    errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
       {
         path: "/about",
         element: <About />,
@@ -30,21 +29,25 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/products",
-        element: <Products />,
+        path: "/",
+        element: (
+          <ProductProvider>
+            <Products />
+          </ProductProvider>
+        ),
       },
       {
-        path: '/signin',
-        element: <SignIn/>
+        path: "/signin",
+        element: <SignIn />,
       },
       {
-        path: '/profile',
-        element: <Profile/>
+        path: "/profile",
+        element: <Profile />,
       },
       {
-        path: '*',
-        element: <ErrorPage/>
-      }
+        path: "/products/:id",
+        element: <ProductDetails />,
+      },
     ],
   },
 ]);
